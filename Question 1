@@ -1,1 +1,153 @@
+#Q1.1: Area, Circumference and Volume of Sphere & Cube
+
+Code:
+import math
+r = float(input("Enter radius of sphere: "))
+a = 4 * math.pi * r**2
+v = (4/3) * math.pi * r**3
+c = 2 * math.pi * r
+print(f"Sphere -> Area: {a}, Volume: {v}, Circumference: {c}")
+s = float(input("Enter side of cube: "))
+a = 6 * s**2
+v = s**3
+p = 12 * s
+print(f"Cube -> Area: {a}, Volume: {v}, Perimeter: {p}")
+
+
+#Q1.2: Print All Even Numbers from User List
+
+Code:
+
+lst = list(map(int, input("Enter numbers: ").split()))
+print("Even numbers:", [x for x in lst if x % 2 == 0])
+
+
+#Q1.3: Print All Positive Numbers from User List
+
+Code:
+
+lst = list(map(int, input("Enter numbers: ").split()))
+print("Positive numbers:", [x for x in lst if x > 0])
+
+#Q1.4: Find Maximum and Minimum of Three Numbers
+Code:
+
+a, b, c = map(int, input("Enter three numbers: ").split())
+print("Maximum:", max(a, b, c))
+print("Minimum:", min(a, b, c))
+
+#Q1.5: Roots of Quadratic Equation
+
+Code:
+
+import cmath
+a = float(input("Enter a: "))
+b = float(input("Enter b: "))
+c = float(input("Enter c: "))
+d = (b**2) - (4*a*c)
+sol1 = (-b - cmath.sqrt(d)) / (2*a)
+sol2 = (-b + cmath.sqrt(d)) / (2*a)
+print(f"Roots: {sol1}, {sol2}")
+
+
+#Q1.6: Character Type Check (Vowel, Consonant, Digit, Special Character)
+
+Code:
+
+ch = input("Enter a character: ")
+if ch.isalpha():
+    if ch.lower() in 'aeiou':
+        print("Vowel")
+    else:
+        print("Consonant")
+elif ch.isdigit():
+    print("Digit")
+else:
+    print("Special character")
+
+#Q1.7: Factorial of a Number
+
+Code:
+
+n = int(input("Enter a number: "))
+fact = 1
+for i in range(1, n+1):
+    fact *= i
+print("Factorial:", fact)
+
+#Q1.8: Reverse a 5-digit Number using While Loop
+
+Code:
+
+n = int(input("Enter a 5-digit number: "))
+rev = 0
+while n > 0:
+    rev = rev * 10 + n % 10
+    n //= 10
+print("Reversed:", rev)
+
+#Q1.9: Count Alphabets and Digits in a String
+
+Code:
+
+s = input("Enter string: ")
+alphabets = sum(c.isalpha() for c in s)
+digits = sum(c.isdigit() for c in s)
+print("Alphabets:", alphabets)
+print("Digits:", digits)
+
+
+#Q1.10: Youngest of Three People
+
+Code:
+
+a, b, c = map(int, input("Enter ages: ").split())
+youngest = min(a, b, c)
+print("Youngest age:", youngest)
+
+#Q1.11: Sum, Product, Subtraction using User-defined Function
+
+Code:
+
+def operations(a, b):
+    return a + b, a - b, a * b
+
+x, y = map(int, input("Enter two integers: ").split())
+s, d, p = operations(x, y)
+print(f"Sum: {s}, Difference: {d}, Product: {p}")
+
+#Q1.12: Frequency of Words in a String using Function
+
+Code:
+
+def word_frequency(s):
+    words = s.split()
+    freq = {word: words.count(word) for word in words}
+    return freq
+
+sentence = input("Enter a string: ")
+print("Frequency:", word_frequency(sentence))
+
+#Q1.13: Gross Salary Calculation using Function
+
+Code:
+
+def gross_salary(basic):
+    return basic + 0.8 * basic + 0.2 * basic
+
+basic = float(input("Enter basic salary: "))
+print("Gross Salary:", gross_salary(basic))
+
+#Q1.14: Total and Average of Group of Numbers using Function
+
+Code:
+
+def total_avg(nums):
+    total = sum(nums)
+    avg = total / len(nums)
+    return total, avg
+
+lst = list(map(int, input("Enter numbers: ").split()))
+t, a = total_avg(lst)
+print(f"Total: {t}, Average: {a}")
 
