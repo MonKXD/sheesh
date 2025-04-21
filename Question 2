@@ -1,1 +1,109 @@
+Q2.1: Student Management System with Inheritance and Sorting
+
+Code:
+
+class Student:
+    def __init__(self, rollno, name, marks):
+        self.rollno = rollno
+        self.name = name
+        self.marks = marks
+
+    def display(self):
+        print(f"Roll No: {self.rollno}, Name: {self.name}, Marks: {self.marks}")
+
+class Fees(Student):
+    def __init__(self, rollno, name, marks, fees=0):
+        super().__init__(rollno, name, marks)
+        self.fees = fees
+
+    def submit_fees(self, amount):
+        self.fees += amount
+
+    def receipt(self):
+        print(f"Fees Paid: {self.fees}")
+
+class Result(Student):
+    def __init__(self, rollno, name, marks):
+        super().__init__(rollno, name, marks)
+        self.grade = 'A' if marks > 75 else 'B'
+
+    def show_result(self):
+        print(f"Marks: {self.marks}, Grade: {self.grade}")
+
+students = [
+    Student(1, "Amita", 80),
+    Student(2, "Bharat", 60),
+    Student(3, "Chinmay", 90)
+]
+
+# Sort by marks and name
+students.sort(key=lambda x: (x.marks, x.name))
+for s in students:
+    s.display()
+
+
+Q2.2: NumPy Array Creation and Operations
+
+Code:
+
+import numpy as np
+
+# Task 1
+a = np.array([1, 2, 3])
+print("1D Array:", a)
+b = np.array([[1, 2], [3, 4]])
+print("2D Array:\n", b)
+
+# Task 2
+print("Shape:", b.shape)
+print("Size:", b.size)
+print("Data Type:", b.dtype)
+print("Dimensions:", b.ndim)
+print("Item Size:", b.itemsize)
+
+# Task 3
+x = np.array([10, 20, 30])
+y = np.array([1, 2, 3])
+print("Add:", x + y)
+print("Subtract:", x - y)
+print("Multiply:", x * y)
+print("Divide:", x / y)
+
+# Task 4
+print("Sum:", np.sum(x))
+print("Mean:", np.mean(x))
+print("Max:", np.max(x))
+print("Min:", np.min(x))
+
+
+Q2.3: Pandas DataFrame Operations and Data Handling
+
+Code:
+
+import pandas as pd
+import numpy as np
+
+# Task 1
+data = {
+    'Name': ['Amita', 'Bharat', 'Chinmay', 'Krish', 'Rithesh'],
+    'Age': [25, 30, 35, 34, 28],
+    'City': ['Mumbai', 'Pune', 'Nashik', 'Aurangabad', 'Nagpur']
+}
+df = pd.DataFrame(data)
+print(df.head())
+print(df.tail())
+
+# Task 2
+print("Selected Rows & Columns:\n", df[['Name', 'Age']].iloc[1:4])
+print("Filtered (Age > 30):\n", df[df['Age'] > 30])
+
+# Task 3
+df.loc[2, 'Age'] = np.nan
+print("With NaN:\n", df)
+print("Filled:\n", df.fillna(0))
+print("Dropped:\n", df.dropna())
+
+# Task 4
+print("Sorted by Age:\n", df.sort_values(by='Age'))
+print("Group by City - Mean Age:\n", df.groupby('City').mean(numeric_only=True))
 
